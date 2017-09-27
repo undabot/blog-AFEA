@@ -77,8 +77,8 @@
 		5769FA481F70635A005429FD /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				5769FA491F70635A005429FD /* FirstOnboardingViewController.swift */,
 				5769FA4A1F70635A005429FD /* OnboardingViewController.swift */,
+				5769FA491F70635A005429FD /* FirstOnboardingViewController.swift */,
 				5769FA4B1F70635A005429FD /* SecondOnboardingViewController.swift */,
 				5769FA4C1F70635A005429FD /* ThirdOnboardingViewController.swift */,
 			);

@@ -78,4 +78,8 @@ class CircleView: UIView {
         circleLayer.add(animation, forKey: "animateCircle")
     }
     
+    func setPercentage(_ percentage: CGFloat) {
+        circleLayer.strokeEnd = percentage
+    }
+    
 }
