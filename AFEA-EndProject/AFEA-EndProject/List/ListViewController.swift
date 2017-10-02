@@ -12,29 +12,24 @@ class ListViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var lastSelectedIndexPath: IndexPath!
     var foodModels: [FoodModel] = []
-    
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(ListViewController.refresh(refreshControl:)), for: .valueChanged)
-        
-        return refreshControl
-    }()
+    let refreshViewHeight: CGFloat = 62.0
+    var refreshView: RefreshView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         foodModels = FoodModelFactory.foodModels()
         
-        collectionView.refreshControl = refreshControl
+        let refreshRect = CGRect(x: 0.0, y: 0, width: view.frame.size.width, height: refreshViewHeight)
+        refreshView = RefreshView(frame: refreshRect, scrollView: self.collectionView)
+        refreshView.delegate = self
+        view.addSubview(refreshView)
+        view.bringSubview(toFront: refreshView)
+        
+        collectionView.backgroundColor = UIColor.clear
     }
 
-    @objc func refresh(refreshControl: UIRefreshControl) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.refreshControl.endRefreshing()
-            self.collectionView.reloadData()
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if
             let detailsViewController = segue.destination as? DetailsViewController,
@@ -44,13 +39,38 @@ class ListViewController: UIViewController {
     }
 }
 
+// MARK: Refresh control methods
+
+extension ListViewController: RefreshViewDelegate {
+    
+    func refreshViewDidRefresh(refreshView: RefreshView) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            refreshView.endRefreshing()
+        }
+    }
+    
+}
+
+// MARK: Scroll view methods
+
+extension ListViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        refreshView.scrollViewDidScroll(scrollView)
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        refreshView.scrollViewWillEndDragging(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
+    }
+    
+}
 
 // MARK: UICollectionViewDataSource
 
 extension ListViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -71,6 +91,7 @@ extension ListViewController: UICollectionViewDataSource {
 extension ListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        lastSelectedIndexPath = indexPath
         performSegue(withIdentifier: "DetailsViewController", sender: foodModels[indexPath.row])
     }
     

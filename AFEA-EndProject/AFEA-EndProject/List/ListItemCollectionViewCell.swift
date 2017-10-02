@@ -14,12 +14,18 @@ class ListItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var animatedCircleView: CircleView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         circleView.layer.cornerRadius = circleView.frame.width/2
         circleView.layer.borderWidth = 6
         circleView.layer.borderColor = UIColor.wheat.cgColor
+        
+        animatedCircleView = CircleView(frame: circleView.frame, lineWidth: 7, backLayerColor: UIColor.clear, frontLayerColor: UIColor.white)
+        contentView.addSubview(animatedCircleView)
+        
     }
     
     func configure(with foodModel: FoodModel) {
