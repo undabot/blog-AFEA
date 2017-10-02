@@ -22,7 +22,7 @@ class FirstOnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setUpViews()
     }
     
