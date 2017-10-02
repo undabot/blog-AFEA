@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		571DDC231F7B9B1C00470F6E /* ListToDetailsSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DDC221F7B9B1C00470F6E /* ListToDetailsSegue.swift */; };
+		571DDC251F7BB3FB00470F6E /* EFCountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DDC241F7BB3FB00470F6E /* EFCountingLabel.swift */; };
+		571DDC271F7BBE8200470F6E /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DDC261F7BBE8200470F6E /* UIFont.swift */; };
+		571DDC291F7BC0A200470F6E /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DDC281F7BC0A200470F6E /* UILabel.swift */; };
+		571DDC2B1F7BE6C000470F6E /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DDC2A1F7BE6C000470F6E /* RefreshView.swift */; };
 		5769FA451F70632F005429FD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769FA3D1F70632F005429FD /* Colors.swift */; };
 		5769FA461F70632F005429FD /* FoodModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769FA3E1F70632F005429FD /* FoodModelFactory.swift */; };
 		5769FA4E1F70635A005429FD /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769FA471F70635A005429FD /* FoodModel.swift */; };
@@ -25,6 +30,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		571DDC221F7B9B1C00470F6E /* ListToDetailsSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListToDetailsSegue.swift; sourceTree = "<group>"; };
+		571DDC241F7BB3FB00470F6E /* EFCountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFCountingLabel.swift; sourceTree = "<group>"; };
+		571DDC261F7BBE8200470F6E /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		571DDC281F7BC0A200470F6E /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		571DDC2A1F7BE6C000470F6E /* RefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
 		5769FA3D1F70632F005429FD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = "../../aa/AFEA-EndProject/Colors.swift"; sourceTree = "<group>"; };
 		5769FA3E1F70632F005429FD /* FoodModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodModelFactory.swift; path = "../../aa/AFEA-EndProject/FoodModelFactory.swift"; sourceTree = "<group>"; };
 		5769FA401F70632F005429FD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +79,7 @@
 			children = (
 				5769FA421F70632F005429FD /* ListItemCollectionViewCell.swift */,
 				5769FA431F70632F005429FD /* ListViewController.swift */,
+				571DDC221F7B9B1C00470F6E /* ListToDetailsSegue.swift */,
 			);
 			name = List;
 			path = "../../aa/AFEA-EndProject/List";
@@ -109,9 +120,13 @@
 				5769FA3D1F70632F005429FD /* Colors.swift */,
 				5769FA4D1F70635A005429FD /* CircleView.swift */,
 				5769FA471F70635A005429FD /* FoodModel.swift */,
+				5769FA3E1F70632F005429FD /* FoodModelFactory.swift */,
+				571DDC241F7BB3FB00470F6E /* EFCountingLabel.swift */,
+				571DDC261F7BBE8200470F6E /* UIFont.swift */,
+				571DDC281F7BC0A200470F6E /* UILabel.swift */,
+				571DDC2A1F7BE6C000470F6E /* RefreshView.swift */,
 				5769FA481F70635A005429FD /* Onboarding */,
 				5769FA3F1F70632F005429FD /* Details */,
-				5769FA3E1F70632F005429FD /* FoodModelFactory.swift */,
 				5769FA411F70632F005429FD /* List */,
 				57A2C3D21F70626000E9E293 /* AppDelegate.swift */,
 				5769FA591F7069F1005429FD /* Main.storyboard */,
@@ -153,6 +168,7 @@
 				TargetAttributes = {
 					57A2C3CE1F70626000E9E293 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 22A939EHZ7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -196,13 +212,18 @@
 				57A2C3D31F70626000E9E293 /* AppDelegate.swift in Sources */,
 				5769FA5B1F706B2A005429FD /* OnboardingViewController.swift in Sources */,
 				5769FA611F706B49005429FD /* ListViewController.swift in Sources */,
+				571DDC231F7B9B1C00470F6E /* ListToDetailsSegue.swift in Sources */,
 				5769FA4F1F70635A005429FD /* CircleView.swift in Sources */,
 				5769FA461F70632F005429FD /* FoodModelFactory.swift in Sources */,
+				571DDC291F7BC0A200470F6E /* UILabel.swift in Sources */,
 				5769FA451F70632F005429FD /* Colors.swift in Sources */,
 				5769FA5D1F706B3A005429FD /* SecondOnboardingViewController.swift in Sources */,
+				571DDC271F7BBE8200470F6E /* UIFont.swift in Sources */,
 				5769FA601F706B45005429FD /* ListItemCollectionViewCell.swift in Sources */,
 				5769FA4E1F70635A005429FD /* FoodModel.swift in Sources */,
+				571DDC251F7BB3FB00470F6E /* EFCountingLabel.swift in Sources */,
 				5769FA5E1F706B3D005429FD /* ThirdOnboardingViewController.swift in Sources */,
+				571DDC2B1F7BE6C000470F6E /* RefreshView.swift in Sources */,
 				5769FA5C1F706B31005429FD /* FirstOnboardingViewController.swift in Sources */,
 				5769FA5F1F706B40005429FD /* DetailsViewController.swift in Sources */,
 			);
@@ -321,6 +342,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 22A939EHZ7;
 				INFOPLIST_FILE = "AFEA-EndProject/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AFEA-EndProject";
@@ -333,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 22A939EHZ7;
 				INFOPLIST_FILE = "AFEA-EndProject/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AFEA-EndProject";

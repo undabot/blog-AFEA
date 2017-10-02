@@ -15,19 +15,26 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var leftBottomLabel: UILabel!
-    @IBOutlet weak var middleBottomLabel: UILabel!
-    @IBOutlet weak var rightBottomLabel: UILabel!
+    
+    @IBOutlet weak var leftBottomPercentageLabel: EFCountingLabel!
+    @IBOutlet weak var middleBottomPercetnageLabel: EFCountingLabel!
+    @IBOutlet weak var rightBottomPercentageLabel: EFCountingLabel!
+    
+    @IBOutlet weak var leftBottomExplanationLabel: UILabel!
+    @IBOutlet weak var middleBottomExplanationLabel: UILabel!
+    @IBOutlet weak var rightBottomExplanationLabel: UILabel!
     
     var foodModel: FoodModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    func updateView() {
         imageView.image = foodModel.photo
         titleLabel.text = foodModel.title
         subtitleLabel.text = foodModel.subtitle
-
+        
         let bigCircleView = CircleView(frame: circleContainerView.bounds, lineWidth: 6, backLayerColor: UIColor.coolGrey, frontLayerColor: UIColor.pastelRed)
         circleContainerView.addSubview(bigCircleView)
         
@@ -50,17 +57,39 @@ class DetailsViewController: UIViewController {
         let smallCircleView = CircleView(frame: smallFrame, lineWidth: 6, backLayerColor: UIColor.coolGrey, frontLayerColor: UIColor.darkSkyBlue)
         circleContainerView.addSubview(smallCircleView)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        bigCircleView.animateCircle(duration: 0.6, percentage: self.foodModel.carbohydrates)
+        mediumCircleView.animateCircle(duration: 0.6, percentage: self.foodModel.protein)
+        smallCircleView.animateCircle(duration: 0.6, percentage: self.foodModel.fatt)
+        
+        bigCircleView.alpha = 0
+        mediumCircleView.alpha = 0
+        smallCircleView.alpha = 0
+        
+        bigCircleView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        mediumCircleView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        smallCircleView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        
+        UIView.animate(withDuration: 0.4) {
+            bigCircleView.alpha = 1
+            mediumCircleView.alpha = 1
+            smallCircleView.alpha = 1
             
-            bigCircleView.animateCircle(duration: 1, percentage: self.foodModel.carbohydrates)
-            mediumCircleView.animateCircle(duration: 1, percentage: self.foodModel.protein)
-            smallCircleView.animateCircle(duration: 1, percentage: self.foodModel.fatt)
+            bigCircleView.transform = .identity
+            mediumCircleView.transform = .identity
+            smallCircleView.transform = .identity
         }
         
-        leftBottomLabel.text = "\(self.foodModel.carbohydrates)%"
-        middleBottomLabel.text = "\(self.foodModel.protein)%"
-        rightBottomLabel.text = "\(self.foodModel.fatt)%"
+        let formatBlock =  {
+            (value: CGFloat) in
+            return String(Int(value)) + "%"
+        }
+        leftBottomPercentageLabel.formatBlock = formatBlock
+        middleBottomPercetnageLabel.formatBlock = formatBlock
+        rightBottomPercentageLabel.formatBlock = formatBlock
         
+        leftBottomPercentageLabel.countFrom(0, to: self.foodModel.carbohydrates * 100, withDuration: 0.6)
+        middleBottomPercetnageLabel.countFrom(0, to: self.foodModel.protein * 100, withDuration: 0.6)
+        rightBottomPercentageLabel.countFrom(0, to: self.foodModel.fatt * 100, withDuration: 0.6)
     }
 
 }
