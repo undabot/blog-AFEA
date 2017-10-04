@@ -129,43 +129,38 @@ extension OnboardingViewController: UIScrollViewDelegate {
         toImageSize.width = firstFromImageFrame.width + (toImageSize.width - firstFromImageFrame.width) * firstPagePercentage
         toImageSize.height = firstFromImageFrame.height + (toImageSize.height - firstFromImageFrame.height) * firstPagePercentage
         
+        let transform = CGAffineTransform(scaleX: 1 - firstPagePercentage, y: 1 - firstPagePercentage).concatenating(CGAffineTransform(translationX: scrollView.frame.width * firstPagePercentage, y: 0))
         // first box
-        let firstToContainerFrame = toTransitionFrame(fromFrame: firstFromContainerFrame, toFrame: toContainerFrame, percentage: firstPagePercentage)
-        
-        firstOndboardingViewController.breadContainerView.frame = firstToContainerFrame
-        firstOndboardingViewController.breadContainerView.layer.cornerRadius = firstToContainerFrame.width/2
-        
-        firstOndboardingViewController.breadImageView.frame.size = toImageSize
-        firstOndboardingViewController.breadImageView.center = firstOndboardingViewController.breadContainerView.center
+            
+        firstOndboardingViewController.breadContainerView.transform = transform
+        firstOndboardingViewController.breadImageView.transform = transform
         
         // second box
-        let secondToContainerFrame = toTransitionFrame(fromFrame: secondFromContainerFrame, toFrame: toContainerFrame, percentage: firstPagePercentage)
+        firstOndboardingViewController.cheeseContainerView.transform = transform
+        firstOndboardingViewController.cheeseImageView.transform = transform
         
-        firstOndboardingViewController.cheeseContainerView.frame = secondToContainerFrame
-        firstOndboardingViewController.cheeseContainerView.layer.cornerRadius = secondToContainerFrame.width/2
+        // fourth box
         
-        firstOndboardingViewController.cheeseImageView.frame.size = toImageSize
-        firstOndboardingViewController.cheeseImageView.center = firstOndboardingViewController.cheeseContainerView.center
-        
-        // third box
-        let thirdToContainerFrame = toTransitionFrame(fromFrame: thirdFromContainerFrame, toFrame: toContainerFrame, percentage: firstPagePercentage)
-        
-        firstOndboardingViewController.fishContainerView.frame = thirdToContainerFrame
-        firstOndboardingViewController.fishContainerView.layer.cornerRadius = thirdToContainerFrame.width/2
-        
-        firstOndboardingViewController.fishImageView.frame.size = toImageSize
-        firstOndboardingViewController.fishImageView.center = firstOndboardingViewController.fishContainerView.center
+        firstOndboardingViewController.strawberryContainerView.transform = transform
+        firstOndboardingViewController.strawberryImageView.transform = transform
         
         // third box
-        let fourthToContainerFrame = toTransitionFrame(fromFrame: fourthFromContainerFrame, toFrame: toContainerFrame, percentage: firstPagePercentage)
-        
-        firstOndboardingViewController.strawberryContainerView.frame = fourthToContainerFrame
-        firstOndboardingViewController.strawberryContainerView.layer.cornerRadius = fourthToContainerFrame.width/2
-        
-        firstOndboardingViewController.strawberryImageView.frame.size = toImageSize
-        firstOndboardingViewController.strawberryImageView.center = firstOndboardingViewController.strawberryContainerView.center
-        
-        
+        if firstPagePercentage > 0 {
+            firstOndboardingViewController.fishContainerView.transform = .identity
+            firstOndboardingViewController.fishImageView.transform = .identity
+            
+            let thirdToContainerFrame = toTransitionFrame(fromFrame: thirdFromContainerFrame, toFrame: toContainerFrame, percentage: firstPagePercentage)
+            
+            firstOndboardingViewController.fishContainerView.frame = thirdToContainerFrame
+            firstOndboardingViewController.fishContainerView.layer.cornerRadius = thirdToContainerFrame.width/2
+            
+            firstOndboardingViewController.fishImageView.frame.size = toImageSize
+            firstOndboardingViewController.fishImageView.center = firstOndboardingViewController.fishContainerView.center
+        } else {
+            firstOndboardingViewController.fishContainerView.transform = transform
+            firstOndboardingViewController.fishImageView.transform = transform
+        }
+
         
         // second animation
         let secondPagePercentage = scrollView.contentOffset.x/scrollView.frame.width - 1
@@ -177,7 +172,6 @@ extension OnboardingViewController: UIScrollViewDelegate {
         thirdOndboardingViewController.smallCircleView.setPercentage(0.20 * secondPagePercentage)
         thirdOndboardingViewController.mediumCircleView.setPercentage(0.40 * secondPagePercentage)
         thirdOndboardingViewController.bigCircleView.setPercentage(0.80 * secondPagePercentage)
-        
         
         
         var thirdScreenToFrame = self.thirdScreenToFrame
