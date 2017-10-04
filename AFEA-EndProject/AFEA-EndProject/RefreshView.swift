@@ -28,19 +28,30 @@ class RefreshView: UIView, UIScrollViewDelegate {
     var endAnimationInProgress: Bool = false
     
     let circleView: UIView
+    let backgroundView: UIView
+    let clipedView: UIView
     
     init(frame: CGRect, scrollView: UIScrollView) {
-        self.circleView = UIView(frame: CGRect(x: frame.width/2 - 10, y: frame.height/2 - 9, width: 21, height: 21))
+        self.circleView = UIView(frame: CGRect(x: frame.width/2 - 10, y: frame.height/2 - 9, width: 23, height: 23))
         self.circleView.backgroundColor = UIColor.darkSkyBlue
-        self.circleView.layer.cornerRadius = 10
+        self.circleView.layer.cornerRadius = self.circleView.frame.width/2
         self.circleView.layer.masksToBounds = true
+        self.backgroundView = UIView(frame: frame)
+        self.backgroundView.backgroundColor = UIColor.silver
+        self.backgroundView.clipsToBounds = true
+        
+        self.clipedView = UIView(frame: frame)
+        self.clipedView.clipsToBounds = true
+        self.clipedView.backgroundColor = UIColor.clear
         
         super.init(frame: frame)
         
-        self.addSubview(self.circleView)
-        self.backgroundColor = UIColor.silver
+        self.addSubview(backgroundView)
+        self.addSubview(clipedView)
+        self.clipedView.addSubview(self.circleView)
         self.scrollView = scrollView
-        self.clipsToBounds = true
+        self.clipsToBounds = false
+        self.backgroundColor = UIColor.clear
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -59,7 +70,17 @@ class RefreshView: UIView, UIScrollViewDelegate {
             redrawFromProgress(self.progress)
             self.transform = CGAffineTransform(translationX: 0, y: offsetY)
             self.circleView.transform = CGAffineTransform(scaleX: self.progress, y: self.progress)
+
+            let newOffset = CGFloat( max(-(scrollView.contentOffset.y + scrollView.contentInset.top), 0.0))
+            let offsetToMove = max(newOffset - self.frame.height, 0)
+            
+            let scaleY = ((self.frame.height + offsetToMove) / self.frame.height - 1) * 2 + 1
+            
+            self.backgroundView.transform = CGAffineTransform(scaleX: 1, y: scaleY * 0.9)
+            self.backgroundView.alpha = 1 - offsetToMove / scrollView.frame.height * 3
         }
+        
+        
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -79,6 +100,9 @@ class RefreshView: UIView, UIScrollViewDelegate {
             newInsets.top += self.frame.size.height
             self.scrollView!.contentInset = newInsets
             self.transform = CGAffineTransform(translationX: 0, y: newInsets.top)
+            
+            self.backgroundView.transform = .identity
+            self.backgroundView.alpha = 1
         })
         
         //do animation
@@ -113,16 +137,16 @@ class RefreshView: UIView, UIScrollViewDelegate {
     func animateLoading() {
 
         let newCircleView = UIView()
-        newCircleView.frame.size.width = 21 * self.circleView.transform.a / 1.1
-        newCircleView.frame.size.height = 21 * self.circleView.transform.d / 1.1
+        newCircleView.frame.size.width = self.circleView.frame.width * self.circleView.transform.a / 1.1
+        newCircleView.frame.size.height = self.circleView.frame.height * self.circleView.transform.d / 1.1
         newCircleView.layer.cornerRadius = newCircleView.frame.width/2
         newCircleView.layer.masksToBounds = true
         newCircleView.backgroundColor = UIColor.clear
         newCircleView.layer.borderColor = UIColor.darkSkyBlue.cgColor
         newCircleView.layer.borderWidth = 1.5
         
-        self.addSubview(newCircleView)
-        self.sendSubview(toBack: newCircleView)
+        self.clipedView.addSubview(newCircleView)
+        self.clipedView.sendSubview(toBack: newCircleView)
         newCircleView.center = self.circleView.center
         
         UIView.animate(withDuration: 0.8, delay: 0, animations: {
