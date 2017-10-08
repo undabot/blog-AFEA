@@ -67,7 +67,6 @@ class RefreshView: UIView, UIScrollViewDelegate {
         self.progress = min(max(offsetY / frame.size.height, 0.0), 1.0)
         
         if !isRefreshing {
-            redrawFromProgress(self.progress)
             self.transform = CGAffineTransform(translationX: 0, y: offsetY)
             self.circleView.transform = CGAffineTransform(scaleX: self.progress, y: self.progress)
 
@@ -105,16 +104,14 @@ class RefreshView: UIView, UIScrollViewDelegate {
             self.backgroundView.alpha = 1
         })
         
-        //do animation
+        // do waiting animation
         animateMainCircle()
     }
     
 
     func animateMainCircle() {
-        UIView.animate(withDuration: 1.2, animations: {
+        UIView.animate(withDuration: 1.2) {
             self.circleView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        }) { (_) in
-
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.1, execute: {
@@ -131,7 +128,6 @@ class RefreshView: UIView, UIScrollViewDelegate {
                 }
             }
         })
-        
     }
     
     func animateLoading() {
@@ -159,8 +155,6 @@ class RefreshView: UIView, UIScrollViewDelegate {
     }
     
     func endRefreshing() {
-        
-       
         endAnimationInProgress = true
         
         UIView.animate(withDuration: 1.2, animations: {
@@ -184,14 +178,6 @@ class RefreshView: UIView, UIScrollViewDelegate {
                     //finished
                 })
             })
-        }
-        
-        
-    }
-    
-    func redrawFromProgress(_ progress: CGFloat) {
-        if (!endAnimationInProgress) {
-            
         }
     }
     

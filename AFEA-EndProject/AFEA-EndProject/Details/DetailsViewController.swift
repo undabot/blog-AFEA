@@ -24,19 +24,25 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var middleBottomExplanationLabel: UILabel!
     @IBOutlet weak var rightBottomExplanationLabel: UILabel!
     
+    var smallCircleView: CircleView!
+    var mediumCircleView: CircleView!
+    var bigCircleView: CircleView!
+    
     var foodModel: FoodModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setViews()
     }
     
-    func updateView() {
+    func setViews() {
         imageView.image = foodModel.photo
         titleLabel.text = foodModel.title
         subtitleLabel.text = foodModel.subtitle
         
         let bigCircleView = CircleView(frame: circleContainerView.bounds, lineWidth: 6, backLayerColor: UIColor.coolGrey, frontLayerColor: UIColor.pastelRed)
         circleContainerView.addSubview(bigCircleView)
+        self.bigCircleView = bigCircleView
         
         var mediumFrame = circleContainerView.bounds
         mediumFrame.size.width = mediumFrame.size.width - 42
@@ -46,7 +52,7 @@ class DetailsViewController: UIViewController {
         
         let mediumCircleView = CircleView(frame: mediumFrame, lineWidth: 6, backLayerColor: UIColor.coolGrey, frontLayerColor: UIColor.purpleGrey)
         circleContainerView.addSubview(mediumCircleView)
-        
+        self.mediumCircleView = mediumCircleView
         
         var smallFrame = mediumFrame
         smallFrame.size.width = smallFrame.size.width - 42
@@ -56,6 +62,10 @@ class DetailsViewController: UIViewController {
         
         let smallCircleView = CircleView(frame: smallFrame, lineWidth: 6, backLayerColor: UIColor.coolGrey, frontLayerColor: UIColor.darkSkyBlue)
         circleContainerView.addSubview(smallCircleView)
+        self.smallCircleView = smallCircleView
+    }
+    
+    func updateView() {
         
         bigCircleView.animateCircle(duration: 0.6, percentage: self.foodModel.carbohydrates)
         mediumCircleView.animateCircle(duration: 0.6, percentage: self.foodModel.protein)
@@ -65,18 +75,10 @@ class DetailsViewController: UIViewController {
         mediumCircleView.alpha = 0
         smallCircleView.alpha = 0
         
-        bigCircleView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-        mediumCircleView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-        smallCircleView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-        
         UIView.animate(withDuration: 0.4) {
-            bigCircleView.alpha = 1
-            mediumCircleView.alpha = 1
-            smallCircleView.alpha = 1
-            
-            bigCircleView.transform = .identity
-            mediumCircleView.transform = .identity
-            smallCircleView.transform = .identity
+            self.bigCircleView.alpha = 1
+            self.mediumCircleView.alpha = 1
+            self.smallCircleView.alpha = 1
         }
         
         let formatBlock =  {

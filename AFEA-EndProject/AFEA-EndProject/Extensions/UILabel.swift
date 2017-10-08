@@ -12,11 +12,8 @@ extension UILabel {
     func animateToFont(_ font: UIFont, withDuration duration: TimeInterval) {
         let oldFont = self.font
         let labelScale =  font.pointSize/oldFont!.pointSize
-        UIView.animate(withDuration: duration, animations: {
+        UIView.animate(withDuration: duration) {
             self.transform = CGAffineTransform(scaleX: labelScale, y: labelScale)
-        }) { (_) in
-            //self.font = font
-            //self.sizeToFit()
         }
     }
 }

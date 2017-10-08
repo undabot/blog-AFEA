@@ -15,7 +15,6 @@ class FoodModelFactory {
         
         var foodModels: [FoodModel] = []
         
-        
         let foodModel1 = FoodModel(protein: 0.4, carbohydrates: 0.9, fatt: 0.4, photo: UIImage(named: "berry"), title: "Berry", subtitle: "What a nice fruit!", circleColor: UIColor.pastelRed)
         foodModels.append(foodModel1)
         

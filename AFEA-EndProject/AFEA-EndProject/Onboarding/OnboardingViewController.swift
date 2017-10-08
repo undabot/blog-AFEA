@@ -19,20 +19,8 @@ class OnboardingViewController: UIViewController {
     weak var secondOndboardingViewController: SecondOnboardingViewController!
     weak var thirdOndboardingViewController: ThirdOnboardingViewController!
     
-    lazy var firstFromContainerFrame: CGRect = {
-        return self.firstOndboardingViewController.breadContainerView.frame
-    }()
-    
-    lazy var secondFromContainerFrame: CGRect = {
-        return self.firstOndboardingViewController.cheeseContainerView.frame
-    }()
-    
     lazy var thirdFromContainerFrame: CGRect = {
         return self.firstOndboardingViewController.fishContainerView.frame
-    }()
-    
-    lazy var fourthFromContainerFrame: CGRect = {
-        return self.firstOndboardingViewController.strawberryContainerView.frame
     }()
     
     lazy var firstFromImageFrame: CGRect = {
@@ -55,6 +43,8 @@ class OnboardingViewController: UIViewController {
         return Int((scrollView.contentOffset.x/scrollView.frame.width).rounded())
     }
     
+    // MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -69,6 +59,8 @@ class OnboardingViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    // MARK: Action
+    
     @IBAction func skipButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "ListViewController", sender: nil)
     }
@@ -82,6 +74,8 @@ class OnboardingViewController: UIViewController {
             scrollView.setContentOffset(CGPoint(x: xContentOffestToScroll, y: 0), animated: true)
         }
     }
+    
+    // MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let firstOndboardingViewController = segue.destination as? FirstOnboardingViewController {
@@ -103,9 +97,7 @@ class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController: UIScrollViewDelegate {
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.x/scrollView.frame.width)
-        
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {        
         // current page
         let currentPage = self.currentPage
         
@@ -140,7 +132,6 @@ extension OnboardingViewController: UIScrollViewDelegate {
         firstOndboardingViewController.cheeseImageView.transform = transform
         
         // fourth box
-        
         firstOndboardingViewController.strawberryContainerView.transform = transform
         firstOndboardingViewController.strawberryImageView.transform = transform
         
@@ -173,12 +164,10 @@ extension OnboardingViewController: UIScrollViewDelegate {
         thirdOndboardingViewController.mediumCircleView.setPercentage(0.40 * secondPagePercentage)
         thirdOndboardingViewController.bigCircleView.setPercentage(0.80 * secondPagePercentage)
         
-        
         var thirdScreenToFrame = self.thirdScreenToFrame
         thirdScreenToFrame.origin.x = thirdScreenToFrame.origin.x + scrollView.frame.width
         
-        
-        let boostedSecondPercentage = min(secondPagePercentage * 1, 1)
+        let boostedSecondPercentage = min(secondPagePercentage, 1)
         let toFrame = toTransitionFrame(fromFrame: secondAnimationFromFrame, toFrame: thirdScreenToFrame, percentage: boostedSecondPercentage)
         secondOndboardingViewController.bigFishContainerView.frame = toFrame
         secondOndboardingViewController.bigFishContainerView.layer.cornerRadius = toFrame.width/2
