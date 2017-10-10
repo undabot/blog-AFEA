@@ -44,7 +44,7 @@ class ListViewController: UIViewController {
 extension ListViewController: RefreshViewDelegate {
     
     func refreshViewDidRefresh(refreshView: RefreshView) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             refreshView.endRefreshing()
         }
     }

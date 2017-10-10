@@ -76,7 +76,7 @@ class RefreshView: UIView, UIScrollViewDelegate {
             let scaleY = ((self.frame.height + offsetToMove) / self.frame.height - 1) * 2 + 1
             
             self.backgroundView.transform = CGAffineTransform(scaleX: 1, y: scaleY * 0.9)
-            self.backgroundView.alpha = 1 - offsetToMove / scrollView.frame.height * 3
+            self.backgroundView.alpha = 1 - offsetToMove / scrollView.frame.height * 6
         }
         
         
@@ -117,15 +117,16 @@ class RefreshView: UIView, UIScrollViewDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.1, execute: {
             if self.isRefreshing {
                 self.animateLoading()
-                UIView.animate(withDuration: 0.9, delay: 0, animations: {
+                
+                UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
                     self.circleView.transform = .identity
-                }) { (_) in
+                }, completion: { (_) in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                         if self.isRefreshing {
                             self.animateMainCircle()
                         }
                     })
-                }
+                })
             }
         })
     }
@@ -145,7 +146,7 @@ class RefreshView: UIView, UIScrollViewDelegate {
         self.clipedView.sendSubview(toBack: newCircleView)
         newCircleView.center = self.circleView.center
         
-        UIView.animate(withDuration: 0.8, delay: 0, animations: {
+        UIView.animate(withDuration: 0.6, delay: 0, animations: {
             newCircleView.transform = CGAffineTransform(scaleX: 1.7, y: 1.7)
             newCircleView.alpha = 0
         }) { (_) in

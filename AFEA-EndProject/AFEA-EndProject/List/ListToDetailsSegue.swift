@@ -96,7 +96,7 @@ extension ListToDetailsSegue: UIViewControllerAnimatedTransitioning {
             selectedLabel?.center = (detailsViewController.titleLabel.superview?.convert(detailsViewController.titleLabel.center, to: selectedLabel?.superview))!
             circleCopyView.frame = (detailsViewController.bigCircleView.superview?.convert(detailsViewController.bigCircleView.frame, to: containerView))!
             circleCopyView.layer.cornerRadius = circleCopyView.frame.width/2
-            circleCopyView.layer.borderColor = UIColor.coolGrey.cgColor
+            circleCopyView.layer.borderColor = UIColor.darkGrey.cgColor
         }) { (_) in
             UIView.animate(withDuration: 0.4, animations: {
                 circleCopyView.alpha = 0

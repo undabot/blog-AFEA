@@ -31,7 +31,7 @@ class ListItemCollectionViewCell: UICollectionViewCell {
     func configure(with foodModel: FoodModel) {
         imageView.image = foodModel.photo
         titleLabel.text = foodModel.title
-        circleView.layer.borderColor = foodModel.circleColor.cgColor
+        circleView.layer.borderColor = UIColor.darkGrey.cgColor
     }
     
 }
