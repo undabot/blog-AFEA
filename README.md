@@ -6,5 +6,12 @@ https://medium.com/@azzaromujic/animations-as-a-part-of-every-day-job-f1d3dd509d
 
 # Onboarding
 
+![Onboarding](https://cdn-images-1.medium.com/max/1600/1*f97dnTzLnNLPztxaFSNk7g.gif)
 
-![With real-time animation](https://cdn-images-1.medium.com/max/1600/1*u9MuR6HKfUyX6gAL6j1_RA.gif)
+# Pull to refresh
+
+![PullToRefresh](https://cdn-images-1.medium.com/max/1600/1*K7TPU7jIV6_DDeiFe_XZ_w.gif)
+
+# List to Details
+
+![ListToDetails](https://cdn-images-1.medium.com/max/1600/1*v3zWf-Em2WV98i3D6V4yvQ.gif)
