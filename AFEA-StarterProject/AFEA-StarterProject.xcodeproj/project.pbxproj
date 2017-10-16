@@ -22,6 +22,10 @@
 		572719CF1F653B54009D8BFA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572719CE1F653B54009D8BFA /* Colors.swift */; };
 		572719D21F65439C009D8BFA /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572719D11F65439C009D8BFA /* ListViewController.swift */; };
 		572719D41F654401009D8BFA /* ListItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572719D31F654401009D8BFA /* ListItemCollectionViewCell.swift */; };
+		BF18D5791F8F5F0500D41FA0 /* PercentageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF18D5781F8F5F0500D41FA0 /* PercentageFormatter.swift */; };
+		BF18D57B1F8F66B100D41FA0 /* CAShapeLayer+Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF18D57A1F8F66B100D41FA0 /* CAShapeLayer+Circle.swift */; };
+		BF18D57D1F8F66D500D41FA0 /* UIBezierPath+Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF18D57C1F8F66D500D41FA0 /* UIBezierPath+Circle.swift */; };
+		BFC769BC1F8E3F6A002F11D2 /* UIView+CircleBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC769BB1F8E3F6A002F11D2 /* UIView+CircleBorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		572719CE1F653B54009D8BFA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		572719D11F65439C009D8BFA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		572719D31F654401009D8BFA /* ListItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF18D5781F8F5F0500D41FA0 /* PercentageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageFormatter.swift; sourceTree = "<group>"; };
+		BF18D57A1F8F66B100D41FA0 /* CAShapeLayer+Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAShapeLayer+Circle.swift"; sourceTree = "<group>"; };
+		BF18D57C1F8F66D500D41FA0 /* UIBezierPath+Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Circle.swift"; sourceTree = "<group>"; };
+		BFC769BB1F8E3F6A002F11D2 /* UIView+CircleBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CircleBorder.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,16 +91,15 @@
 			isa = PBXGroup;
 			children = (
 				572719B31F65274E009D8BFA /* AppDelegate.swift */,
-				572719CE1F653B54009D8BFA /* Colors.swift */,
-				570849551F6D67C800B3EA75 /* CircleView.swift */,
-				570849571F6DC02000B3EA75 /* FoodModel.swift */,
-				570849591F6DC11F00B3EA75 /* FoodModelFactory.swift */,
-				570849521F6D606F00B3EA75 /* Details */,
-				572719D01F65438F009D8BFA /* List */,
+				BF18D5801F8F6BF800D41FA0 /* Models */,
 				572719C51F652B44009D8BFA /* Onboarding */,
-				572719B71F65274E009D8BFA /* Main.storyboard */,
+				572719D01F65438F009D8BFA /* List */,
+				570849521F6D606F00B3EA75 /* Details */,
+				BF18D57E1F8F6B8C00D41FA0 /* Extensions */,
+				BF18D57F1F8F6BA100D41FA0 /* Views */,
 				572719BA1F65274E009D8BFA /* Assets.xcassets */,
 				572719BC1F65274F009D8BFA /* LaunchScreen.storyboard */,
+				572719B71F65274E009D8BFA /* Main.storyboard */,
 				572719BF1F65274F009D8BFA /* Info.plist */,
 			);
 			path = "AFEA-StarterProject";
@@ -116,6 +123,35 @@
 				572719D31F654401009D8BFA /* ListItemCollectionViewCell.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		BF18D57E1F8F6B8C00D41FA0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BF18D5781F8F5F0500D41FA0 /* PercentageFormatter.swift */,
+				572719CE1F653B54009D8BFA /* Colors.swift */,
+				BFC769BB1F8E3F6A002F11D2 /* UIView+CircleBorder.swift */,
+				BF18D57A1F8F66B100D41FA0 /* CAShapeLayer+Circle.swift */,
+				BF18D57C1F8F66D500D41FA0 /* UIBezierPath+Circle.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BF18D57F1F8F6BA100D41FA0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				570849551F6D67C800B3EA75 /* CircleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BF18D5801F8F6BF800D41FA0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				570849571F6DC02000B3EA75 /* FoodModel.swift */,
+				570849591F6DC11F00B3EA75 /* FoodModelFactory.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,13 +229,17 @@
 				572719C91F652B93009D8BFA /* FirstOnboardingViewController.swift in Sources */,
 				572719CF1F653B54009D8BFA /* Colors.swift in Sources */,
 				570849581F6DC02000B3EA75 /* FoodModel.swift in Sources */,
+				BF18D57B1F8F66B100D41FA0 /* CAShapeLayer+Circle.swift in Sources */,
 				570849541F6D614300B3EA75 /* DetailsViewController.swift in Sources */,
 				572719D41F654401009D8BFA /* ListItemCollectionViewCell.swift in Sources */,
 				572719CB1F652BA4009D8BFA /* SecondOnboardingViewController.swift in Sources */,
+				BF18D5791F8F5F0500D41FA0 /* PercentageFormatter.swift in Sources */,
 				572719B41F65274E009D8BFA /* AppDelegate.swift in Sources */,
+				BFC769BC1F8E3F6A002F11D2 /* UIView+CircleBorder.swift in Sources */,
 				570849561F6D67C800B3EA75 /* CircleView.swift in Sources */,
 				572719C71F652B56009D8BFA /* OnboardingViewController.swift in Sources */,
 				572719CD1F652BB4009D8BFA /* ThirdOnboardingViewController.swift in Sources */,
+				BF18D57D1F8F66D500D41FA0 /* UIBezierPath+Circle.swift in Sources */,
 				5708495A1F6DC11F00B3EA75 /* FoodModelFactory.swift in Sources */,
 				572719D21F65439C009D8BFA /* ListViewController.swift in Sources */,
 			);
