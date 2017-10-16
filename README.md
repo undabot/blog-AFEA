@@ -4,6 +4,9 @@ Animations for every application.
 Project for this blog post:
 https://medium.com/@azzaromujic/animations-as-a-part-of-every-day-job-f1d3dd509d8f
 
+- Swift 3
+- prototyped for iPhone6/iPhone7
+
 # Onboarding
 
 ![Onboarding](https://cdn-images-1.medium.com/max/1600/1*f97dnTzLnNLPztxaFSNk7g.gif)
