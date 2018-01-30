@@ -70,13 +70,25 @@ extension ListToDetailsSegue: UIViewControllerAnimatedTransitioning {
             }
         })
         
+        let centerPoint = selectedImageView!.center
+        selectedImageView?.frame.size.width = min(selectedImageView!.image!.size.width, selectedImageView!.frame.size.width)
+        selectedImageView?.frame.size.height = min(selectedImageView!.image!.size.height, selectedImageView!.frame.size.height)
+     
+        if selectedImageView!.image!.size.width > selectedImageView!.image!.size.height {
+            selectedImageView?.frame.size.height = selectedImageView!.frame.size.width * (selectedImageView!.image!.size.height / selectedImageView!.image!.size.width)
+        } else {
+            selectedImageView?.frame.size.width = selectedImageView!.frame.size.height * (selectedImageView!.image!.size.width / selectedImageView!.image!.size.height)
+        }
+        
+        selectedImageView?.contentMode = .scaleAspectFill
+        selectedImageView?.center = centerPoint
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             listViewController.collectionView.visibleCells.forEach({ (cell) in
                 let listItemCell = cell as! ListItemCollectionViewCell
                 listItemCell.animatedCircleView.isHidden = true
                 listItemCell.circleView.isHidden = true
             })
-            selectedImageView?.contentMode = .scaleAspectFill
+            
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
