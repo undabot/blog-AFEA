@@ -10,6 +10,7 @@
 		572038151F82F1A800FBDB9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 572037FB1F82F13800FBDB9F /* Assets.xcassets */; };
 		572038231F82F1A800FBDB9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A2C3D21F70626000E9E293 /* AppDelegate.swift */; };
 		5769FA5A1F7069F1005429FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5769FA591F7069F1005429FD /* Main.storyboard */; };
+		5771769F20D29A0400BAA9F3 /* AFEA_EndProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5771769E20D29A0400BAA9F3 /* AFEA_EndProjectTests.swift */; };
 		577791D51F8AC5B600F3970A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577791C81F8AC55500F3970A /* Colors.swift */; };
 		577791D61F8AC5B600F3970A /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577791C91F8AC55500F3970A /* UIFont.swift */; };
 		577791D71F8AC5B600F3970A /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577791CA1F8AC55500F3970A /* UILabel.swift */; };
@@ -29,6 +30,16 @@
 		57A2C3DD1F70626000E9E293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57A2C3DB1F70626000E9E293 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		577176A120D29A0400BAA9F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57A2C3C71F70626000E9E293 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57A2C3CE1F70626000E9E293;
+			remoteInfo = "AFEA-EndProject";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		572037F71F82F13800FBDB9F /* ListItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		572037F81F82F13800FBDB9F /* ListToDetailsSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListToDetailsSegue.swift; sourceTree = "<group>"; };
@@ -40,6 +51,9 @@
 		572038031F82F13900FBDB9F /* SecondOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewController.swift; sourceTree = "<group>"; };
 		572038041F82F13900FBDB9F /* ThirdOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdOnboardingViewController.swift; sourceTree = "<group>"; };
 		5769FA591F7069F1005429FD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5771769C20D29A0300BAA9F3 /* AFEA-EndProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AFEA-EndProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5771769E20D29A0400BAA9F3 /* AFEA_EndProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFEA_EndProjectTests.swift; sourceTree = "<group>"; };
+		577176A020D29A0400BAA9F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		577791C81F8AC55500F3970A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		577791C91F8AC55500F3970A /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		577791CA1F8AC55500F3970A /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -55,6 +69,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5771769920D29A0300BAA9F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		57A2C3CC1F70626000E9E293 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -94,6 +115,15 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		5771769D20D29A0400BAA9F3 /* AFEA-EndProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				5771769E20D29A0400BAA9F3 /* AFEA_EndProjectTests.swift */,
+				577176A020D29A0400BAA9F3 /* Info.plist */,
+			);
+			path = "AFEA-EndProjectTests";
+			sourceTree = "<group>";
+		};
 		577791C71F8AC55500F3970A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				57A2C3D11F70626000E9E293 /* AFEA-EndProject */,
+				5771769D20D29A0400BAA9F3 /* AFEA-EndProjectTests */,
 				57A2C3D01F70626000E9E293 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				57A2C3CF1F70626000E9E293 /* AFEA-EndProject.app */,
+				5771769C20D29A0300BAA9F3 /* AFEA-EndProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,6 +192,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5771769B20D29A0300BAA9F3 /* AFEA-EndProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 577176A520D29A0400BAA9F3 /* Build configuration list for PBXNativeTarget "AFEA-EndProjectTests" */;
+			buildPhases = (
+				5771769820D29A0300BAA9F3 /* Sources */,
+				5771769920D29A0300BAA9F3 /* Frameworks */,
+				5771769A20D29A0300BAA9F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				577176A220D29A0400BAA9F3 /* PBXTargetDependency */,
+			);
+			name = "AFEA-EndProjectTests";
+			productName = "AFEA-EndProjectTests";
+			productReference = 5771769C20D29A0300BAA9F3 /* AFEA-EndProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		57A2C3CE1F70626000E9E293 /* AFEA-EndProject */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57A2C3E11F70626000E9E293 /* Build configuration list for PBXNativeTarget "AFEA-EndProject" */;
@@ -183,10 +233,15 @@
 		57A2C3C71F70626000E9E293 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Azzaro Mujic";
 				TargetAttributes = {
+					5771769B20D29A0300BAA9F3 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 57A2C3CE1F70626000E9E293;
+					};
 					57A2C3CE1F70626000E9E293 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 22A939EHZ7;
@@ -208,11 +263,19 @@
 			projectRoot = "";
 			targets = (
 				57A2C3CE1F70626000E9E293 /* AFEA-EndProject */,
+				5771769B20D29A0300BAA9F3 /* AFEA-EndProjectTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5771769A20D29A0300BAA9F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		57A2C3CD1F70626000E9E293 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,6 +289,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5771769820D29A0300BAA9F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5771769F20D29A0400BAA9F3 /* AFEA_EndProjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		57A2C3CB1F70626000E9E293 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +323,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		577176A220D29A0400BAA9F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57A2C3CE1F70626000E9E293 /* AFEA-EndProject */;
+			targetProxy = 577176A120D29A0400BAA9F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		57A2C3DB1F70626000E9E293 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -264,6 +343,58 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		577176A320D29A0400BAA9F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "AFEA-EndProjectTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AFEA-EndProjectTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AFEA-EndProject.app/AFEA-EndProject";
+			};
+			name = Debug;
+		};
+		577176A420D29A0400BAA9F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "AFEA-EndProjectTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AFEA-EndProjectTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AFEA-EndProject.app/AFEA-EndProject";
+			};
+			name = Release;
+		};
 		57A2C3DF1F70626000E9E293 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -388,6 +519,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		577176A520D29A0400BAA9F3 /* Build configuration list for PBXNativeTarget "AFEA-EndProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				577176A320D29A0400BAA9F3 /* Debug */,
+				577176A420D29A0400BAA9F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		57A2C3CA1F70626000E9E293 /* Build configuration list for PBXProject "AFEA-EndProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
